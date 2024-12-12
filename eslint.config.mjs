@@ -1,9 +1,15 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
+import pluginJs from '@eslint/js'
+import { FlatCompat } from '@eslint/eslintrc'
 
+const compat = new FlatCompat()
 
 export default [
-  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
-  {languageOptions: { globals: globals.browser }},
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      sourceType: 'commonjs'
+    }
+  },
   pluginJs.configs.recommended,
-];
+  ...compat.extends('eslint-config-standard')
+]

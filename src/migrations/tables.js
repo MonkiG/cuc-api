@@ -3,22 +3,22 @@
  * @param {Pool} db
  * @returns {Promise<void>}
  */
-async function seedTables(db) {
-  //Create the days enum
-  await db.query(DAYS_ENUM);
+async function seedTables (db) {
+  // Create the days enum
+  await db.query(DAYS_ENUM)
 
-  //Create the tables
-  await db.query(SUBJECTS_TABLE);
-  await db.query(PROFESSORS_TABLE);
+  // Create the tables
+  await db.query(SUBJECTS_TABLE)
+  await db.query(PROFESSORS_TABLE)
 }
 
-const DAYS_ENUM = `
+const DAYS_ENUM = /* sql */ `
     DROP TABLE IF EXISTS subjects CASCADE;
     DROP TYPE IF EXISTS days CASCADE;
     CREATE TYPE days AS ENUM ('L', 'M', 'I', 'J', 'V', 'S');
-`;
+`
 
-const SUBJECTS_TABLE = `
+const SUBJECTS_TABLE = /* sql */ `
     CREATE TABLE subjects(
         id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
         name TEXT NOT NULL,
@@ -36,15 +36,15 @@ const SUBJECTS_TABLE = `
         professor_id UUID NOT NULL,
         sec TEXT NOT NULL
     );
-`;
+`
 
-const PROFESSORS_TABLE = `
+const PROFESSORS_TABLE = /* sql */ `
     CREATE TABLE IF NOT EXISTS professors(
         id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
         name TEXT NOT NULL UNIQUE
     );
-`;
+`
 
 module.exports = {
-  seedTables,
-};
+  seedTables
+}

@@ -1,8 +1,8 @@
 class Proffesor {
-  name;
-  constructor(name) {
-    this.name = name;
+  name
+  constructor (name) {
+    this.name = name
   }
 }
 
-module.exports = Proffesor;
+module.exports = Proffesor

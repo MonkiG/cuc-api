@@ -20,7 +20,7 @@ class Subject {
    * @param {string} classroom - Classroom where the subject is held
    * @param {string} period - Period in which the subject is offered
    */
-  constructor(
+  constructor (
     nrc,
     code,
     name,
@@ -36,21 +36,21 @@ class Subject {
     classroom,
     period
   ) {
-    this.nrc = nrc;
-    this.code = code;
-    this.name = name;
-    this.sec = sec;
-    this.cr = cr;
-    this.cup = cup;
-    this.dis = dis;
-    this.proffesorName = proffesorName;
-    this.ses = ses;
-    this.hour = hour;
-    this.days = days;
-    this.building = building;
-    this.classroom = classroom;
-    this.period = period;
+    this.nrc = nrc
+    this.code = code
+    this.name = name
+    this.sec = sec
+    this.cr = cr
+    this.cup = cup
+    this.dis = dis
+    this.proffesorName = proffesorName
+    this.ses = ses
+    this.hour = hour
+    this.days = days
+    this.building = building
+    this.classroom = classroom
+    this.period = period
   }
 }
 
-module.exports = Subject;
+module.exports = Subject
