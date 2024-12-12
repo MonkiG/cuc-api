@@ -23,27 +23,50 @@ apiRouter.use(subjectControllers)
 apiRouter.get('/', (req, res) => {
   const serverName = getServerUrl(req)
   res.json({
-    title: 'Profes cuc api',
-    description: 'API para gestionar profesores y sus clases.',
+    title: 'CUC API',
+    description: 'Centro Universitario de la Costa - Unofficial API',
     routes: [
       {
         method: 'GET',
-        description: 'Obtener todos los profesores',
+        description: 'Retrieve all university professors',
         path: `${serverName}/api/professor`,
         query: {
           page: {
             type: 'number',
-            description: 'Número de la página de resultados (por defecto 1)',
+            description: 'Number of page results (default: 1)',
             required: false,
             example: `${serverName}/api/professor?page=10`
           }
-        }
+        },
+        example: `${serverName}/api/professor`
       },
       {
         method: 'GET',
+        description: 'Retrieve a professor by Id',
         path: `${serverName}/api/professor/:id`,
         query: null,
-        description: 'Obtener un profesor por ID'
+        example: `${serverName}/api/professor/292dee29-fad2-43f7-b919-79472c89464c`
+      },
+      {
+        method: 'GET',
+        description: 'Retrieve all subjects',
+        path: `${serverName}/api/subject`,
+        query: {
+          page: {
+            type: 'number',
+            description: 'Number of page results (default: 1)',
+            required: false,
+            example: `${serverName}/api/subject?page=10`
+          }
+        },
+        example: `${serverName}/api/subject`
+      },
+      {
+        method: 'GET',
+        description: 'Retrieve a subject by Id',
+        path: `${serverName}/api/subject/:id`,
+        query: null,
+        example: `${serverName}/api/subject/1b15e5cb-c77f-4881-bfe7-ecb9d1c0f6ed`
       }
     ]
   })
